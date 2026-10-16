@@ -1,0 +1,17 @@
+// SpacemiT OEMConfig: the EMM-facing app. Carries app_restrictions.xml and
+// pushes managed-config values into the policy service via the SDK. Privileged,
+// platform-signed so it holds MANAGE_DEVICE_POLICY by signature.
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+android_app {
+    name: "SpacemitOemConfig",
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    static_libs: ["spacemit-policy-sdk"],
+    sdk_version: "system_current",
+    certificate: "platform",
+    privileged: true,
+}

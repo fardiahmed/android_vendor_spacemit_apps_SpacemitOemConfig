@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SpacemiT OEMConfig: carries the managed-config schema and applies pushed
+     values through the SpacemiT policy service. Privileged, platform-signed. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.spacemit.oemconfig">
+
+    <!-- To call the policy service. -->
+    <uses-permission android:name="com.spacemit.policy.permission.MANAGE_DEVICE_POLICY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:label="@string/app_label"
+        android:allowBackup="false">
+
+        <meta-data
+            android:name="android.content.APP_RESTRICTIONS"
+            android:resource="@xml/app_restrictions" />
+
+        <!-- Protected system broadcasts: the receiver need not be exported. -->
+        <receiver android:name=".RestrictionsReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_RESTRICTIONS_CHANGED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".OemConfigApplyService" android:exported="false" />
+    </application>
+</manifest>

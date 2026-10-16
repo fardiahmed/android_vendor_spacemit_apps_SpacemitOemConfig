@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_label">SpacemiT OEMConfig</string>
+    <string name="kiosk_title">Kiosk mode</string>
+    <string name="kiosk_desc">Boot into the kiosk launcher.</string>
+    <string name="fake_camera_title">Fake camera</string>
+    <string name="fake_camera_desc">Use the virtual camera instead of a sensor.</string>
+    <string name="adb_title">ADB enabled</string>
+    <string name="adb_desc">Allow USB debugging.</string>
+</resources>

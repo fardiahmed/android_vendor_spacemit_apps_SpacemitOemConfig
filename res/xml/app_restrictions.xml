@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SpacemiT OEMConfig managed-configuration schema. An EMM reads this to build its
+  settings UI, then pushes values back as application restrictions.
+
+  Only SpacemiT/board-specific policies live here. Standard device toggles
+  (camera, mic, Bluetooth, NFC, USB data) are set by the device owner directly
+  through DevicePolicyManager user restrictions, not through this app.
+-->
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <restriction
+        android:key="kiosk_mode"
+        android:restrictionType="bool"
+        android:title="@string/kiosk_title"
+        android:description="@string/kiosk_desc"
+        android:defaultValue="false" />
+
+    <restriction
+        android:key="fake_camera"
+        android:restrictionType="bool"
+        android:title="@string/fake_camera_title"
+        android:description="@string/fake_camera_desc"
+        android:defaultValue="false" />
+
+    <restriction
+        android:key="adb_enabled"
+        android:restrictionType="bool"
+        android:title="@string/adb_title"
+        android:description="@string/adb_desc"
+        android:defaultValue="true" />
+</restrictions>
